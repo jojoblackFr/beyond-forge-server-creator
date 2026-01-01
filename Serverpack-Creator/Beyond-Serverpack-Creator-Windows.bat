@@ -28,30 +28,30 @@ echo.
 echo Downloading Newest Config ...
 echo.
 
-REM mkdir "%Root%temp_download" >nul
-REM powershell -Command "Invoke-WebRequest -Uri '%GIT_PATH%' -OutFile '%Root%temp_download\config_update.zip'"
-REM Rem Extract Downloaded Zip
-REM 
-REM powershell -Command "Expand-Archive -Path '%Root%temp_download\config_update.zip' -DestinationPath '%Root%temp_download' -Force"
-REM 
-REM if exist "%Root%config" goto :OldConfigDelete 
-REM goto :OldConfigNotExist
-REM :OldConfigDelete
-REM REM Old Config Delete
-REM echo Deleting Old Config ...
-REM rmdir /s /q "%Root%config" >nul
-REM  
-REM :OldConfigNotExist
-REM 
-REM REM Move New Config
-REM echo Moving New Config ...
-REM move "%Root%temp_download\beyond-forge-server-creator-main\Serverpack-Creator\config" "%Root%" >nul
-REM 
-REM REM Clean Temp Files
-REM echo Cleaning Temp Files ...
-REM rmdir /s /q "%Root%temp_download" >nul
-REM echo.
-REM timeout /t 5
+mkdir "%Root%temp_download" >nul
+powershell -Command "Invoke-WebRequest -Uri '%GIT_PATH%' -OutFile '%Root%temp_download\config_update.zip'"
+Rem Extract Downloaded Zip
+
+powershell -Command "Expand-Archive -Path '%Root%temp_download\config_update.zip' -DestinationPath '%Root%temp_download' -Force"
+
+if exist "%Root%config" goto :OldConfigDelete 
+goto :OldConfigNotExist
+:OldConfigDelete
+REM Old Config Delete
+echo Deleting Old Config ...
+rmdir /s /q "%Root%config" >nul
+ 
+:OldConfigNotExist
+
+REM Move New Config
+echo Moving New Config ...
+move "%Root%temp_download\beyond-forge-server-creator-main\Serverpack-Creator\config" "%Root%" >nul
+
+REM Clean Temp Files
+echo Cleaning Temp Files ...
+rmdir /s /q "%Root%temp_download" >nul
+echo.
+timeout /t 5
 
 cls
 echo.
