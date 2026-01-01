@@ -1,5 +1,10 @@
 echo off >null
 
+if exist "%CLIENT_PACK%" goto :ClientPackNMissing
+mkdir "%Root%client_pack" >nul
+echo Creating Client_Pack Folder ...
+
+:ClientPackNMissing
 if exist "%CLIENT_PACK%\mods" goto :ClientPackOK
 echo.
 echo ====================================================
