@@ -1,14 +1,16 @@
 @echo off
 setlocal EnableExtensions EnableDelayedExpansion
-REM Pfade Setzen für Script
+REM Pfade Setzen fÃ¼r Script
 
-set "ROOT=%~dp0"
-set "LISTS=%ROOT%remove_list"
-set "SERVERPACK=%ROOT%serverpacks"
-set "CLIENT_PACK=%ROOT%client_pack"
-set "MAP_FILE=%ROOT%config\modpack_map.txt"
+REM set "ROOT=%~dp0"
 
-REM Überprüfungen für client-pack inhalt
+
+REM set "LISTS=%ROOT%remove_list"
+REM set "SERVERPACK=%ROOT%serverpacks"
+REM set "CLIENT_PACK=%ROOT%client_pack"
+REM set "MAP_FILE=%ROOT%config\modpack_map.txt"
+
+REM ÃœberprÃ¼fungen fÃ¼r client-pack inhalt
 
 
 echo.
@@ -122,7 +124,7 @@ if "%MODPACK%"=="1" (
 
 echo [OK] Copy step finished.
 
-Rem Löschen von Mods
+Rem LÃ¶schen von Mods
 set "REMOVE_LIST="
 
 if "%MODPACK%"=="1" set "REMOVE_LIST=%LISTS%\beyond_ascension_remove.txt"
@@ -130,7 +132,7 @@ if "%MODPACK%"=="2" set "REMOVE_LIST=%LISTS%\beyond_cosmos_remove.txt"
 if "%MODPACK%"=="3" set "REMOVE_LIST=%LISTS%\beyond_depth_remove.txt"
 
 
-REM ===== Remove-Liste prüfen =====
+REM ===== Remove-Liste prÃ¼fen =====
 if not exist "%REMOVE_LIST%" (
   echo.
   echo [WARN] Remove list not found:
@@ -138,7 +140,7 @@ if not exist "%REMOVE_LIST%" (
   goto :AfterModRemoval
 )
 
-REM ===== Mods-Ordner prüfen =====
+REM ===== Mods-Ordner prÃ¼fen =====
 if not exist "%SERVERPACK%\mods" (
   echo.
   echo [WARN] Server mods folder not found:
@@ -154,7 +156,7 @@ echo.
 for /f "usebackq delims=" %%L in ("%REMOVE_LIST%") do (
   set "PREFIX=%%L"
   if not "!PREFIX!"=="" (
-    REM Löscht Prefix*.jar (falls nichts matcht, passiert nichts)
+    REM LÃ¶scht Prefix*.jar (falls nichts matcht, passiert nichts)
     for %%F in ("%SERVERPACK%\mods\!PREFIX!*.jar") do (
       if exist "%%~fF" (
         echo [DEL] %%~nxF
