@@ -15,7 +15,15 @@ REM Beyond Depth
 if "%MODPACK%"=="3" (
     set "ICON_URL=https://media.forgecdn.net/avatars/thumbnails/1311/962/64/64/638853142230249135_animated.gif"
 )
+
+REM Beyond Depth Insanity
+if "%MODPACK%"=="4" (
+    set "ICON_URL=https://media.forgecdn.net/avatars/thumbnails/1302/847/64/64/638846973151715653.png"
+)
+
+
 powershell -Command ^
     "Invoke-WebRequest '%ICON_URL%' -OutFile '%SERVERPACK%\server-icon.png'"
+
 
 exit /b
