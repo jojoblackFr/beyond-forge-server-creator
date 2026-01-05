@@ -40,3 +40,4 @@ visuality-forge
 visual_keybinder
 YungsMenuTweaks
 dynview
+darkness
