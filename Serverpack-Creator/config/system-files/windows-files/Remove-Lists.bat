@@ -13,4 +13,7 @@ if "%MODPACK%"=="2" set "REMOVE_LIST=%LISTS%\beyond_cosmos_remove.txt"
 REM Beyond Depth
 if "%MODPACK%"=="3" set "REMOVE_LIST=%LISTS%\beyond_depth_remove.txt"
 
+REM Beyond Depth
+if "%MODPACK%"=="4" set "REMOVE_LIST=%LISTS%\beyond_depth_insantity_remove.txt"
+
 exit /b
