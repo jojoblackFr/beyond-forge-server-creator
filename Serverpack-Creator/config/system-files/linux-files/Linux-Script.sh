@@ -25,16 +25,15 @@ echo ====================================================
 echo
 sleep 2
 
-if [ -f "$Client_Pack/config/" ]; then
-    if [ -f "$Client_Pack/mods/" ]; then
-        if [ -f "$Client_Pack/manifest.json" ]; then
+if [ -d "$Client_Pack/config" ] \
+   && [ -d "$Client_Pack/mods" ] \
+   && [ -f "$Client_Pack/manifest.json" ]; then
 
-            echo "Client Pack Found! Complete Continuing..."
-            sleep 2
-            break
-        fi
-    fi
+    echo "Client Pack Found! Complete Continuing..."
+    sleep 2
+    break
 fi
+
     echo ============================================
     echo
     echo     Serverpack Builder - Beyond Packs
