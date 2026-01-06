@@ -64,5 +64,3 @@ else
     echo - Do NOT copy the parent folder itself
     echo
     read -p "Press ENTER once you have finished copying the files."
-
-if
