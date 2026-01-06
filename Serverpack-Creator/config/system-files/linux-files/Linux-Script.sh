@@ -25,8 +25,8 @@ echo ====================================================
 echo
 sleep 2
 
-if [ -f "$Client_Pack/config" ]; then
-    if [ -f "$Client_Pack/mods" ]; then
+if [ -f "$Client_Pack/config/" ]; then
+    if [ -f "$Client_Pack/mods/" ]; then
         if [ -f "$Client_Pack/manifest.json" ]; then
 
             echo "Client Pack Found! Complete Continuing..."
