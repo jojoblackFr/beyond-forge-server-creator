@@ -25,9 +25,9 @@ echo ====================================================
 echo
 sleep 2
 
-if [ -f "$CLIENT_PACK/config" ]; then
-    if [ -f "$CLIENT_PACK/mods" ]; then
-        if [ -f "$CLIENT_PACK/manifest.json" ]; then
+if [ -f "$Client_Pack/config" ]; then
+    if [ -f "$Client_Pack/mods" ]; then
+        if [ -f "$Client_Pack/manifest.json" ]; then
 
             echo "Client Pack Found! Complete Continuing..."
             sleep 2
@@ -49,7 +49,7 @@ else
     echo
     echo Please copy the CONTENT of the Beyond modpack into this folder:
     echo
-    echo   $CLIENT_PACK
+    echo   $Client_Pack
     echo
     echo Instructions:
     echo
