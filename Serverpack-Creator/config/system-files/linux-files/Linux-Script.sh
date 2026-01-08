@@ -264,7 +264,7 @@ if [ "$hostingtype" = "2" ]; then
     echo Downloading Forge Installer ...
     wget -O "$Forge_Installer" "$Forge_Url"
     echo
-    fi
+
 
 
     clear
