@@ -90,15 +90,22 @@ while true; do
 done
 # Manifest.json lesen
 
-MANIFEST_VERSION=$(grep -oP '"version"\s*:\s*"\K[^"]+' \
-  "$Client_Pack/manifest.json")
+#!/bin/bash
 
-MANIFEST_FORGE=$(grep -oP '"id"\s*:\s*"forge-[^"]+' \
-  "$Client_Pack/manifest.json" | head -n1)
-MANIFEST_FORGE="${MANIFEST_FORGE#forge-}"
+MANIFEST="$Client_Pack/manifest.json"
 
-MANIFEST_NAME=$(grep -oP '"name"\s*:\s*"\K[^"]+' \
-  "$Client_Pack/manifest.json")
+MANIFEST_NAME=$(grep -oP '^\s*"name"\s*:\s*"\K[^"]+' "$MANIFEST")
+MANIFEST_VERSION=$(grep -oP '^\s*"version"\s*:\s*"\K[^"]+' "$MANIFEST")
+
+MANIFEST_MC_VERSION=$(grep -oP '"minecraft"\s*:\s*\{[\s\S]*?"version"\s*:\s*"\K[^"]+' "$MANIFEST")
+
+MANIFEST_FORGE=$(grep -oP '"id"\s*:\s*"\Kforge-[^"]+' "$MANIFEST" | head -n1 | sed 's/^forge-//')
+
+echo "Name: $MANIFEST_NAME"
+echo "Pack-Version: $MANIFEST_VERSION"
+echo "Minecraft-Version: $MANIFEST_MC_VERSION"
+echo "Forge-Version: $MANIFEST_FORGE"
+
 
 clear
 echo
