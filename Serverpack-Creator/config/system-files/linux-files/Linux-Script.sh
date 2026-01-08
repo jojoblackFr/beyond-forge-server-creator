@@ -67,7 +67,7 @@ else
     echo
 
     
-    if [ -d "$Client_Pack/config" ] then
+    /* if [ -d "$Client_Pack/config" ] then
         sleep 1 
     else
         echo "- The 'config' folder is missing"
@@ -83,6 +83,7 @@ else
     else
         echo "- The 'manifest.json' file is missing"
     fi
+    */
     echo
     read -p "Press ENTER once you have finished copying the files."
 fi
