@@ -115,7 +115,7 @@ echo   $MANIFEST_NAME
 echo
 sleep 2
 
-
+Map_File="$Main_Path/config/modpack_map.txt"
 
 while IFS='|' read -r A B C D E; do
   # A=ID, B=Name, C=DisplayName, D=MC, E=Flag
