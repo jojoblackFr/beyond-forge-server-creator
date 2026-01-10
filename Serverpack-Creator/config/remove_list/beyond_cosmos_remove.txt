@@ -29,3 +29,4 @@ sodiumoptionsapi-forge
 visuality-forge
 visual_keybinder
 dynview
+tooltipoverhaul
