@@ -219,14 +219,39 @@ sleep 2
 
 Map_File="$Main_Path/config/modpack_map.txt"
 
+FOUND=0
+
 while IFS='|' read -r A B C D E || [ -n "$A" ]; do
   # A=ID, B=Name, C=DisplayName, D=MC, E=Flag
-  Modpack=$A
-  Name=$B
-  DisplayName=$C
-  MC_Version=$D
-  Flag=$E
+
+  # Windows-Zeilenenden entfernen
+  A="${A%%$'\r'}"
+  B="${B%%$'\r'}"
+  C="${C%%$'\r'}"
+  D="${D%%$'\r'}"
+  E="${E%%$'\r'}"
+
+  # Leere Zeilen oder Kommentare überspringen
+  [[ -z "$A" ]] && continue
+  [[ "$A" =~ ^# ]] && continue
+
+  # === HIER ist der entscheidende Fix ===
+  if [[ "$B" == "$MANIFEST_NAME" ]]; then
+    Modpack="$A"
+    Name="$B"
+    DisplayName="$C"
+    MC_Version="$MANIFEST_MC_VERSION"
+    Flag="$E"
+    FOUND=1
+    break
+  fi
 done < "$Map_File"
+
+if [[ $FOUND -ne 1 ]]; then
+  echo "[ERROR] Modpack '$MANIFEST_NAME' nicht in modpack_map.txt gefunden!"
+  exit 1
+fi
+
 
 clear
 echo
