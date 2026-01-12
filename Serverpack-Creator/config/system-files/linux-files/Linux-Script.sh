@@ -240,7 +240,7 @@ echo [INFO] Detected Modpack:
 echo ====================================================
 echo
 echo   $DisplayName "("$Modpack")"
-echo   MC Version: $MC_Version | Forge Version: $MANIFEST_FORGE Copy_Tacz= $Flag
+echo   MC Version: "$MC_Version" | Forge Version: "$MANIFEST_FORGE" Copy_Tacz= "$Flag"
 echo
 sleep 2
 
@@ -308,7 +308,7 @@ echo by Catversal
 echo
 echo 
 echo [Info] Removing client-only mods using list:
-echo $REMOVE_LIST
+echo "$REMOVE_LIST"
 echo
 sleep 2
 
